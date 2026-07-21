@@ -1,5 +1,10 @@
 <script setup>
-const scores = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+import {rer, computed} from "vue";
+const scores = ref([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+const highestScore = computed(()=>{
+  return  Math.max(highestScore.value);
+
+});
 </script>
 
 <template>
@@ -10,5 +15,5 @@ const scores = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     </li>
   </ul>
 
-  <p>Highest score:  }}</p>
+  <p>Highest score:{{ highestScore }}}}</p>
 </template>
