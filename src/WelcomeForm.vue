@@ -10,7 +10,9 @@ const year = ref("");
 const props = defineProps({
   course: String,
   year: String
+
 });
+
 </script>
 
 <template>
