@@ -1,25 +1,29 @@
-<script>
-import EcmaBind from "./components/EcmaBind.vue";
+<script setup>
+import WelcomeForm from "./WelcomeForm.vue";
+import RegistrationForm from "./RegistrationForm.vue";
 
-export default {
-  components: {
-    EcmaBind,
-  },
+const studentInfo = {
+  course: "BS Information Technology",
+  year: "3rd Year"
 };
+
+function saveUser(user) {
+  console.log("User saved:", user);
+  alert("User registered successfully!");
+}
 </script>
 
 <template>
-  <div>
-    <EcmaBind studentName="Jian" course="BIST" :isEnrolled="true" />
+  <WelcomeForm
+    :course="studentInfo.course"
+    :year="studentInfo.year"
+  />
 
-    <EcmaBind
-      studentName="Aljon"
-      course="BSIT"
-      :isEnrolled="false" />
+  <hr />
 
-    <EcmaBind
-      studentName="Alaniel"
-      course="BSIT"
-      :isEnrolled="true" />
-  </div>
+  <RegistrationForm
+    :course="studentInfo.course"
+    :year="studentInfo.year"
+    @submit="saveUser"
+  />
 </template>

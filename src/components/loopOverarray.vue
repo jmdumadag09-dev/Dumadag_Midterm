@@ -8,6 +8,7 @@ const students = [
 ];
 
 const totalStudent = computed(() => students.length);
+
 </script>
 <template>
   <div v-for="student in students" :key="student.name">
