@@ -1,60 +1,35 @@
 <script setup>
-import WelcomeForm from "./WelcomeForm.vue";
-import RegistrationForm from "./RegistrationForm.vue";
-import WcForm from "./components/WcForm.vue";
-import Regform from "./components/Regform.vue";
+import { ref } from "vue";
+import Form from "./components/Midterm/Form.vue";
+import Display from "./components/Midterm/Display.vue";
 
+const student = ref({
+  studentName: "",
+  studentId: "",
+  email: "",
+  course: "",
+  rating: "",
+  recommendation: false,
+  feedback: "",
+});
 
-const student = {
-  name: "Jian",
-  age: 20,
-  address: "Bohol",
-  course: "if care",
-  year: "3rd Year"
-};
-
-const studentInfo = {
-  course: "BS Information Technology",
-  year: "3rd Year"
-};
-
-
-function saveUser(user) {
-  console.log("User saved:", user);
-  alert("User registered successfully!");
-}
-
-function saveStudent(student) {
-  console.log("Student saved:", student);
-  alert("Student registered successfully!");
+function receiveStudent(studentData) {
+  student.studentName = studentData.studentName;
+  student.studentId = studentData.studentId;
+  student.email = studentData.email;
+  student.course = studentData.course;
+  student.rating = studentData.rating;
+  student.recommendation = studentData.recommendation;
+  student.feedback = studentData.feedback;
 }
 </script>
 
 <template>
+  <div>
+    <h1>Student Feedback System</h1>
 
-    <WcForm
-    :name="student.name"
-    :age="student.age"
-    :address="student.address"
-    :course="student.course"
-    :year="student.year"
-  />
+    <Form @submit="receiveStudent" />
 
-  <hr />
-
-  <Regform
-    @submit="saveStudent"
-  />
-  <WelcomeForm
-    :course="studentInfo.course"
-    :year="studentInfo.year"
-  />
-
-  <hr />
-
-  <RegistrationForm
-    :course="studentInfo.course"
-    :year="studentInfo.year"
-    @submit="saveUser"
-  />
+    <Display :student="student" />
+  </div>
 </template>
