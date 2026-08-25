@@ -9,7 +9,7 @@ const props = defineProps({
 
 <template>
   <div class="display-container">
-    <h2>Submitted Feedback</h2>
+    <h2>Submitted Student</h2>
 
     <p>
       <strong>Student Name:</strong>
@@ -32,18 +32,8 @@ const props = defineProps({
     </p>
 
     <p>
-      <strong>Rating:</strong>
-      {{ props.student.rating }}
-    </p>
-
-    <p>
-      <strong>Would Recommend:</strong>
-      {{ props.student.recommendation ? "Yes" : "No" }}
-    </p>
-
-    <p>
-      <strong>Feedback:</strong>
-      {{ props.student.feedback }}
+      <strong>Year Level:</strong>
+      {{ props.student.yearlevel }}
     </p>
   </div>
 </template>

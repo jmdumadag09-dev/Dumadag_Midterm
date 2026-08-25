@@ -1,35 +1,27 @@
 <script setup>
 import { ref } from "vue";
-import Form from "./components/Midterm/Form.vue";
-import Display from "./components/Midterm/Display.vue";
+import StudentForm from "./components/Midterm/StudentForm.vue";
+import StudentDisplay from "./components/Midterm/StudentDisplay.vue";
 
 const student = ref({
-  studentName: "",
-  studentId: "",
-  email: "",
-  course: "",
-  rating: "",
-  recommendation: false,
-  feedback: "",
+  studentName: "Jian Gwapo",
+  studentId: "18102",
+  email: "jm@gmail.com",
+  course: "i care",
+  yearlevel: " 3rd yearner",
 });
 
 function receiveStudent(studentData) {
-  student.studentName = studentData.studentName;
-  student.studentId = studentData.studentId;
-  student.email = studentData.email;
-  student.course = studentData.course;
-  student.rating = studentData.rating;
-  student.recommendation = studentData.recommendation;
-  student.feedback = studentData.feedback;
+  student.value = studentData;
 }
 </script>
 
 <template>
   <div>
-    <h1>Student Feedback System</h1>
+    <h1>Student Submittion System</h1>
 
-    <Form @submit="receiveStudent" />
+    <StudentForm @submit-student="receiveStudent" />
 
-    <Display :student="student" />
+    <StudentDisplay :student="student" />
   </div>
 </template>
